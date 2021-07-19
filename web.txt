@@ -1,0 +1,52 @@
+package main
+
+import (
+	"log"
+	"net/http"
+	"strings"
+	"github.com/PuerkitoBio/goquery"
+	"fmt"
+)
+
+
+
+func sayhelloName(w http.ResponseWriter, r *http.Request) {
+	// Make HTTP GET request
+	w.Write([]byte("<h1>Welcome to Vick and Edward's web server!</h1>"))
+
+	response, err := http.Get("https://carleton.cafebonappetit.com/cafe/sayles-hill-cafe/2021-07-09/")
+	if err != nil {
+			log.Fatal(err)
+	}
+	defer response.Body.Close()
+
+	doc, _ := goquery.NewDocumentFromReader(response.Body)
+	sel := doc.Find(".c-tab__content-inner")
+
+	choice := sel.Eq(6)
+	choice.Find(`.site-panel__daypart-station-title,
+							.site-panel__daypart-item-title,
+							.site-panel__daypart-item-calories`).
+		Each(func(_ int, e *goquery.Selection) {
+			str := strings.ReplaceAll(e.Text(), "\n", "")
+
+			if e.HasClass("site-panel__daypart-station-title") {
+				w.Write([]byte("<br/><strong>" + str + "</strong>"))
+			} else {
+				fmt.Fprint(w, str)
+			}
+			if !e.HasClass("site-panel__daypart-item-title") {
+				fmt.Fprintln(w, "<br/>")
+			} else {
+				fmt.Fprint(w, "&emsp;&emsp;")
+			}
+		})
+}
+
+func main() {
+    http.HandleFunc("/", sayhelloName) // set router
+    err := http.ListenAndServe(":9090", nil) // set listen port
+    if err != nil {
+        log.Fatal("ListenAndServe: ", err)
+    }
+}

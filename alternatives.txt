@@ -1,0 +1,91 @@
+// package main
+
+// import (
+// 	// "io"
+// 	"log"
+// 	"net/http"
+// 	// "os"
+// 	"strings"
+// 	"github.com/PuerkitoBio/goquery"
+// 	"fmt"
+// 	// "regexp"
+// )
+
+		// https://twinnation.org/articles/35/how-to-add-colors-to-your-console-terminal-output-in-go
+		
+	// raw := sel.Eq(0).Text()
+
+
+		// fmt.Print(choice.Find(".site-panel__daypart-station-title").Text())
+// site-panel__daypart-station-title
+// h4 site-panel__daypart-item-title
+// site-panel__daypart-item-price
+// site-panel__daypart-item-calories
+
+
+		// str := strings.ReplaceAll(raw, "\n", "")
+		// splitFn := func(c rune) bool {
+		// 				return c == '\t' || c == '\n'
+		// }
+		// arr := strings.FieldsFunc(raw, splitFn)
+		// fmt.Println(strings.Join(arr, "\n"))
+    
+		// arr := strings.ReplaceAll(str, "\t", "")
+		// arr = strings.ReplaceAll(arr, "nutrition information", "\n")
+
+    // list := [strin]
+    //puts space and number char into a list backwards
+    // chars := []rune(arr)
+    // for i := -1; i < len(chars); i-- {
+    //     char := string(chars[i])
+    //     if char == " " && string(chars[i + 1]) == "c"{
+    //       start = true
+    //     }
+    //     if start {
+    //       list.append(char)
+    //       if string(chars[i - 1]) != "1"| "2"| "3"| "4"| "5"|"6"| "7"| "8"| "9"|"0"|{
+    //         start = false;
+    //       }
+
+    //     }
+    // }
+    // Resorts the number strings in the list
+    // for i := 0; i < list; i++ {
+
+    // }
+    
+
+
+		// if _, err := strconv.Atoi(v); err == nil {
+		// 		fmt.Printf("%q looks like a number.\n", v)
+		// }
+
+		// '\t' (1 to 4 numbers) " cal."
+		// re := regexp.MustCompile("[0-9]+ cal.")
+		// reg := re.FindAllString(str, -1)
+
+		// fmt.Println(re.Split(arr, -1))
+
+    // if arr == "" {
+    //   fmt.Print("Menu is Empty")
+    // }
+		//fmt.Println(arr)
+		// fmt.Println(str)
+		// for i := range sel.Nodes{
+    //     n := sel.Eq(i)
+    //     fmt.Println(n.Text())
+    // }
+
+    // Copy data from the response to standard output
+    // n, err := io.Copy(os.Stdout, response.Body)
+    // if err != nil {
+    //     log.Fatal(err)
+    // }
+    
+    // log.Println("Number of bytes copied to STDOUT:", n)
+		
+		// fmt.Print("Enter Website: ")
+    // var input string
+    // fmt.Scanln(&input)
+    // fmt.Println(input)
+    
